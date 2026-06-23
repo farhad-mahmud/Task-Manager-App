@@ -1,17 +1,36 @@
-⚡ Getting Started & Running Locally
+# #️⃣ AnyTasks - FrontEnd
+---
+
+# 🛠️ Tech Stack & Features
+
+* **🚀 Framework:** Next.js (App Router)
+* **⚛️ Library:** React (v19)
+* **🎨 Styling:** Tailwind CSS (v4)
+* **📝 Language:** TypeScript
+* **🔒 Task Isolation:** Uses browser `localStorage` to generate a unique session UUID, sending it via custom headers (`X-Session-ID`) to ensure device privacy.
+* **📱 Design:** Fully responsive, clean layouts with modern typography and interface transitions.
+
+---
+
+# ⚡ Getting Started & Running Locally
 
 Follow these steps to run the frontend server locally.
 
-📋 Prerequisites
+## 📋 Prerequisites
 
 Make sure you have Node.js installed on your machine.
 
-🏃 Setup Steps :
-1. Navigate to the frontend directory: cd task-frontend
-2. Install dependencies: npm install
-3. Create a .env.local file in the root of the task-frontend directory to connect it to your local or deployed backend API: NEXT_PUBLIC_API_URL=http://localhost:5050/api/task
-4. Start the development server: npm run dev
-5. Open http://localhost:3000 in your browser to view the application.
+## 🏃 Setup Steps
 
-🌐 Deployment
-* Frontend UI: Live on Vercel 🚀
+```bash
+# Navigate to the frontend directory
+cd task-frontend
+
+# Install dependencies
+npm install
+
+# Create a .env.local file to connect to your backend API
+echo "NEXT_PUBLIC_API_URL=http://localhost:5050/api/task" > .env.local
+
+# Start the development server
+npm run dev

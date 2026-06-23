@@ -40,7 +40,7 @@ CREATE TABLE tasks (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
-###Backend setup 
+### 2. Backend setup 
 ```bash
 # Navigate to the backend directory
 cd backend

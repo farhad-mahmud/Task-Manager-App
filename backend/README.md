@@ -1,10 +1,10 @@
-# ⚙️ AnyTasks - Backend API
+# #️⃣ AnyTasks - Backend API
 
 The backend server and API for the Task Manager application. It handles CRUD operations for tasks and routes them using session-based isolation.
 
 ---
 
-## 🛠️ Tech Stack & Features
+# 🛠️ Tech Stack & Features
 
 * **💻 Server Runtime:** Node.js
 * **⚡ Framework:** Express.js
@@ -14,16 +14,22 @@ The backend server and API for the Task Manager application. It handles CRUD ope
 
 ---
 
-## ⚡ Getting Started & Running Locally
+# ⚡ Getting Started & Running Locally
 
 Follow these steps to run the backend API server locally.
 
-### 📋 Prerequisites
+## 📋 Prerequisites
 
 Make sure you have Node.js installed on your machine.
 
-### 🏃 Setup Steps
+## 🏃 Setup Steps
 
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
+```bash
+# Navigate to the backend directory
+cd backend
+
+# Install dependencies
+npm install
+
+# Start the server (development mode with Nodemon auto-reload)
+npm run dev

@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5050/api/task";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5050/api/task";
 
 export type Task = {
   id: number;
@@ -11,7 +11,7 @@ export type Task = {
 
 export async function getTasks(): Promise<Task[]> {
   const res = await fetch(API_BASE_URL);
-  if (!res.ok) throw new Error("Failed to fetch tasks");
+  if (!res.ok) throw new Error("failed to fetch tasks");
   return res.json();
 }
 

@@ -40,13 +40,17 @@ CREATE TABLE tasks (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
-
+###Backend setup 
 ```bash
 # Navigate to the backend directory
 cd backend
 
 # Install dependencies
 npm install
+
+# Create a .env file in the root of the backend directory and add your PostgreSQL connection string:
+ DATABASE_URL=your_postgresql_connection_string
+ PORT=5050
 
 # Start the server (development mode with Nodemon auto-reload)
 npm run dev

@@ -9,8 +9,22 @@ export type Task = {
   updated_at: string;
 };
 
+function getSessionId(): string {
+  if (typeof window === "undefined") return "";
+  let sessionId = localStorage.getItem("task_manager_session_id");
+  if (!sessionId) {
+    sessionId = crypto.randomUUID();
+    localStorage.setItem("task_manager_session_id", sessionId);
+  }
+  return sessionId;
+}
+
 export async function getTasks(): Promise<Task[]> {
-  const res = await fetch(API_BASE_URL);
+  const res = await fetch(API_BASE_URL, {
+    headers: {
+      "X-Session-ID": getSessionId(),
+    },
+  });
   if (!res.ok) throw new Error("failed to fetch tasks");
   return res.json();
 }
@@ -22,7 +36,10 @@ export async function createTask(
 ): Promise<Task> {
   const res = await fetch(API_BASE_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "X-Session-ID": getSessionId(),
+    },
     body: JSON.stringify({ title, description, status }),
   });
   if (!res.ok) throw new Error("Failed to create task");
@@ -35,7 +52,10 @@ export async function updateTaskStatus(
 ): Promise<Task> {
   const res = await fetch(`${API_BASE_URL}/${id}`, {
     method: "PATCH",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "X-Session-ID": getSessionId(),
+    },
     body: JSON.stringify({ status }),
   });
   if (!res.ok) throw new Error("Failed to update task");
@@ -45,6 +65,9 @@ export async function updateTaskStatus(
 export async function deleteTask(id: number): Promise<void> {
   const res = await fetch(`${API_BASE_URL}/${id}`, {
     method: "DELETE",
+    headers: {
+      "X-Session-ID": getSessionId(),
+    },
   });
   if (!res.ok) throw new Error("Failed to delete task");
 }

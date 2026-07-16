@@ -105,20 +105,23 @@ export default function Home() {
                 </h2>
 
                 <div className="flex flex-col gap-3">
-  {columnTasks.length === 0 ? (
-    <p className="text-sm text-ink-soft/70 italic">
-      Nothing here yet.
-    </p>
-  ) : (
-    columnTasks.map((task) => (
-      <TaskCard
-        key={task.id}
-        task={task}
-        onStatusChange={handleStatusChange}
-        onDelete={handleDelete}
-      />
-    ))
-  )}
+                  {columnTasks.length === 0 ? (
+                    <p className="text-sm text-ink-soft/70 italic">
+                      Nothing here yet.
+                    </p>
+                  ) : (
+                    columnTasks.map((task) => {
+                      console.log("TaskCard is:", TaskCard);
+                      return (
+                        <TaskCard
+                          key={task.id}
+                          task={task}
+                          onStatusChange={handleStatusChange}
+                          onDelete={handleDelete}
+                        />
+                      );
+                    })
+                  )}
                 </div>
               </div>
             );
